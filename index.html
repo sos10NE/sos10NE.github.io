@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio — Économie · Mathématiques · Statistiques</title>
+  <title>Portfolio —Jichi Sosthène</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Syne:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -440,7 +440,7 @@
 
   <!-- NAV -->
   <nav>
-    <div class="nav-logo">V<span>.</span>Nom</div>
+    <div class="nav-logo">J<span>.</span>Sosthène</div>
     <ul class="nav-links">
       <li><a href="#about">À propos</a></li>
       <li><a href="#skills">Compétences</a></li>
@@ -493,6 +493,7 @@
         <p>Basé à Abidjan, j'ai déjà une expérience avec des organisations internationales telles que le HCR pour apporter une lecture chiffrée et structurée des enjeux économiques contemporains.</p>
         <div class="about-details">
           <div class="about-detail-row"><span class="about-detail-label">Localisation</span><span class="about-detail-val">Abidjan, Côte d'Ivoire</span></div>
+          <div class="about-detail-row"><span class="about-detail-label">Université</span><span class="about-detail-val">African School of Economics</span></div>
           <div class="about-detail-row"><span class="about-detail-label">Disponibilité</span><span class="about-detail-val">Internship (2026 - 2027)</span></div>
           <div class="about-detail-row"><span class="about-detail-label">Langues</span><span class="about-detail-val">Français · Anglais</span></div>
           <div class="about-detail-row"><span class="about-detail-label">Formation</span><span class="about-detail-val">M.E.S</span></div>
@@ -621,6 +622,12 @@
         <div class="doc-meta">Étude de marché · Août</div>
         <a href="MARCHE_VALENTIN.pdf" download class="doc-dl">Télécharger</a>
       </div>
+      <div class="doc-card reveal reveal-delay-3">
+        <div class="doc-ext">PDF</div>
+        <div class="doc-title">Impact de la Taxe Carbone sur les émissions de CO₂</div>
+        <div class="doc-meta">Analyse Économique · Taxe Carbone Suédoise</div>
+        <a href="impact_of_tax carbon_on_CO2_emissions.pdf" download class="doc-dl">Télécharger</a>
+      </div>
     </div>
   </section>
 
@@ -639,6 +646,14 @@
           <a href="mailto:sosthenejichi@gmail.com" class="contact-link">
             <div class="contact-link-icon">@</div>
             sosthenejichi@gmail.com
+          </a>
+          <a href="tel:+2250705797370" class="contact-link">
+            <div class="contact-link-icon">☎</div>
+            +225 07 05 79 73 70
+          </a>
+          <a href="tel:+2250595290146" class="contact-link">
+            <div class="contact-link-icon">☎</div>
+            +225 05 95 29 01 46
           </a>
           <a href="https://www.linkedin.com/in/sosthène-jichi-b21b102b9" target="_blank" class="contact-link">
             <div class="contact-link-icon">in</div>
@@ -693,23 +708,13 @@
   <script>
     // ═══════════════════════════════════════════════════════════════════
     // EMAILJS — Configuration
-    // ───────────────────────────────────────────────────────────────────
-    // 1. Va sur https://www.emailjs.com et crée un compte gratuit
-    // 2. Connecte ton Gmail (sosthenejichi@gmail.com) dans "Email Services"
-    // 3. Crée un template dans "Email Templates" avec ces variables :
-    //      {{from_name}}   {{from_email}}   {{subject}}   {{message}}
-    // 4. Remplace les 3 valeurs ci-dessous par tes vraies clés
     // ═══════════════════════════════════════════════════════════════════
     const EMAILJS_PUBLIC_KEY  = 'RYjnBjtEl45WB7Zqv';
     const EMAILJS_SERVICE_ID  = 'service_xtl0of8';
     const EMAILJS_TEMPLATE_ID = 'template_ps4z80u';
 
-    // Initialisation du SDK EmailJS
     emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
 
-    // ───────────────────────────────────────────────────────────────────
-    // sendEmail() — appelée au clic sur le bouton
-    // ───────────────────────────────────────────────────────────────────
     async function sendEmail() {
       const name     = document.getElementById('field-name').value.trim();
       const email    = document.getElementById('field-email').value.trim();
@@ -719,7 +724,6 @@
       const feedback = document.getElementById('formFeedback');
       const label    = document.getElementById('submitLabel');
 
-      // Validation basique
       if (!name || !email || !subject || !message) {
         feedback.textContent = 'Veuillez remplir tous les champs.';
         feedback.className = 'form-feedback err';
@@ -731,7 +735,6 @@
         return;
       }
 
-      // État : chargement
       btn.disabled = true;
       btn.classList.add('loading');
       label.textContent = 'Envoi en cours…';
@@ -748,18 +751,15 @@
           message:    message
         });
 
-        // État : succès
         btn.classList.remove('loading');
         btn.classList.add('success');
         label.textContent = '✓ Message envoyé !';
         feedback.textContent = 'Merci ! Je vous répondrai dans les meilleurs délais.';
         feedback.className = 'form-feedback ok';
 
-        // Réinitialisation des champs
         ['field-name','field-email','field-subject','field-message']
           .forEach(id => document.getElementById(id).value = '');
 
-        // Reset du bouton après 5 secondes
         setTimeout(() => {
           btn.disabled = false;
           btn.classList.remove('success');
@@ -769,7 +769,6 @@
         }, 5000);
 
       } catch (err) {
-        // État : erreur
         btn.classList.remove('loading');
         btn.classList.add('error');
         btn.disabled = false;
@@ -786,9 +785,7 @@
       }
     }
 
-    // ═══════════════════════════════════════════════════════════════════
     // CURSOR
-    // ═══════════════════════════════════════════════════════════════════
     const cursor = document.getElementById('cursor');
     const ring = document.getElementById('cursorRing');
     let mx = 0, my = 0, rx = 0, ry = 0;
@@ -815,9 +812,7 @@
       });
     });
 
-    // ═══════════════════════════════════════════════════════════════════
     // SCROLL REVEAL
-    // ═══════════════════════════════════════════════════════════════════
     const revealEls = document.querySelectorAll('.reveal');
     const obs = new IntersectionObserver(entries => {
       entries.forEach(e => {
@@ -826,9 +821,7 @@
     }, { threshold: 0.1 });
     revealEls.forEach(el => obs.observe(el));
 
-    // ═══════════════════════════════════════════════════════════════════
     // SKILL BARS
-    // ═══════════════════════════════════════════════════════════════════
     const skillObs = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -846,9 +839,7 @@
     }, { threshold: 0.3 });
     document.querySelectorAll('.skill-block').forEach(b => skillObs.observe(b));
 
-    // ═══════════════════════════════════════════════════════════════════
     // ACTIVE NAV
-    // ═══════════════════════════════════════════════════════════════════
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-links a');
     window.addEventListener('scroll', () => {
@@ -859,9 +850,6 @@
       });
     });
 
-    // ═══════════════════════════════════════════════════════════════════
-    // TOAST (conservé pour usage futur)
-    // ═══════════════════════════════════════════════════════════════════
     function showToast(msg) {
       const t = document.getElementById('toast');
       t.textContent = msg; t.classList.add('show');
