@@ -8,9 +8,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Syne:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
-  <!-- ═══════════════════════════════════════════════════════════════
-       EMAILJS — SDK officiel
-       ═══════════════════════════════════════════════════════════════ -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
   <style>
@@ -102,7 +99,8 @@
       font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
       color: var(--gold); border: 1px solid rgba(201,165,92,0.4);
       padding: 8px 20px; text-decoration: none; font-weight: 400;
-      transition: all 0.3s;
+      transition: all 0.3s; cursor: pointer; background: none;
+      font-family: var(--sans);
     }
     .nav-cta:hover { background: var(--gold-dim); border-color: var(--gold); }
 
@@ -310,9 +308,7 @@
     .doc-dl:hover { color: var(--gold); }
     .doc-dl::after { content: '↓'; font-size: 14px; }
 
-    /* ═══════════════════════════════════════════════════════════════
-       CONTACT — Formulaire amélioré avec états visuels
-       ═══════════════════════════════════════════════════════════════ */
+    /* CONTACT */
     #contact { background: var(--bg2); }
     .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
     .contact-text p { font-size: 15px; color: var(--text2); line-height: 1.8; margin-bottom: 2rem; }
@@ -338,8 +334,6 @@
     }
     .form-input:focus, .form-textarea:focus { border-color: rgba(201,165,92,0.5); }
     .form-textarea { resize: vertical; min-height: 120px; }
-
-    /* Bouton submit — états : normal / loading / succès / erreur */
     .form-submit {
       font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
       color: var(--bg); background: var(--gold);
@@ -353,8 +347,6 @@
     .form-submit:disabled { opacity: 0.6; cursor: not-allowed; }
     .form-submit.success { background: var(--green); color: #fff; }
     .form-submit.error   { background: var(--red);   color: #fff; }
-
-    /* Spinner CSS pur */
     .spinner {
       width: 14px; height: 14px;
       border: 2px solid rgba(11,12,15,0.3);
@@ -364,8 +356,6 @@
       display: none;
     }
     .form-submit.loading .spinner { display: block; }
-
-    /* Message de retour sous le bouton */
     .form-feedback {
       font-size: 12px; letter-spacing: 0.05em;
       margin-top: 0.5rem; min-height: 20px;
@@ -382,6 +372,100 @@
     }
     .footer-text { font-size: 12px; color: var(--text3); letter-spacing: 0.05em; }
     .footer-name { font-family: var(--serif); font-size: 16px; color: var(--text2); font-weight: 300; font-style: italic; }
+
+    /* ═══════════════════════════════════════════════════════════════
+       CV LANGUAGE MODAL
+       ═══════════════════════════════════════════════════════════════ */
+    .cv-modal-overlay {
+      position: fixed; inset: 0; z-index: 1000;
+      background: rgba(11,12,15,0.85);
+      backdrop-filter: blur(12px);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.35s ease;
+    }
+    .cv-modal-overlay.open {
+      opacity: 1; pointer-events: all;
+    }
+    .cv-modal {
+      background: var(--bg2);
+      border: 1px solid var(--border2);
+      padding: 3rem;
+      max-width: 480px; width: 90%;
+      position: relative;
+      transform: translateY(20px) scale(0.97);
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .cv-modal-overlay.open .cv-modal {
+      transform: translateY(0) scale(1);
+    }
+    .cv-modal-close {
+      position: absolute; top: 1.25rem; right: 1.25rem;
+      background: none; border: none; cursor: pointer;
+      color: var(--text3); font-size: 20px; line-height: 1;
+      transition: color 0.2s; padding: 4px;
+    }
+    .cv-modal-close:hover { color: var(--gold); }
+    .cv-modal-eyebrow {
+      font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 1rem;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .cv-modal-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--gold); }
+    .cv-modal-title {
+      font-family: var(--serif); font-size: 28px; font-weight: 300;
+      color: var(--text); margin-bottom: 0.5rem; line-height: 1.2;
+    }
+    .cv-modal-title em { color: var(--gold); font-style: italic; }
+    .cv-modal-sub {
+      font-size: 13px; color: var(--text3); margin-bottom: 2.5rem;
+      letter-spacing: 0.03em;
+    }
+    .cv-lang-options {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+    }
+    .cv-lang-btn {
+      display: flex; flex-direction: column; align-items: flex-start;
+      gap: 10px; padding: 1.5rem;
+      background: var(--bg3); border: 1px solid var(--border);
+      cursor: pointer; text-decoration: none;
+      transition: border-color 0.25s, background 0.25s, transform 0.2s;
+      position: relative; overflow: hidden;
+    }
+    .cv-lang-btn::after {
+      content: ''; position: absolute; inset: 0;
+      background: var(--gold-dim); opacity: 0;
+      transition: opacity 0.25s;
+    }
+    .cv-lang-btn:hover {
+      border-color: var(--gold);
+      background: var(--bg2);
+      transform: translateY(-2px);
+    }
+    .cv-lang-btn:hover::after { opacity: 1; }
+    .cv-lang-flag {
+      font-size: 26px; line-height: 1;
+      position: relative; z-index: 1;
+    }
+    .cv-lang-label {
+      font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--text3); font-family: var(--sans);
+      position: relative; z-index: 1;
+      transition: color 0.25s;
+    }
+    .cv-lang-btn:hover .cv-lang-label { color: var(--gold); }
+    .cv-lang-name {
+      font-family: var(--serif); font-size: 18px; font-weight: 400;
+      color: var(--text); line-height: 1;
+      position: relative; z-index: 1;
+    }
+    .cv-lang-dl {
+      font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--gold); display: flex; align-items: center; gap: 6px;
+      position: relative; z-index: 1;
+      transition: gap 0.2s;
+    }
+    .cv-lang-btn:hover .cv-lang-dl { gap: 10px; }
 
     /* ANIMATIONS */
     @keyframes fadeUp {
@@ -429,6 +513,8 @@
       .skills-layout, .projects-grid, .docs-grid { grid-template-columns: 1fr; }
       .project-card.featured { grid-column: span 1; }
       footer { flex-direction: column; gap: 1rem; text-align: center; }
+      .cv-lang-options { grid-template-columns: 1fr; }
+      .cv-modal { padding: 2rem; }
     }
   </style>
 </head>
@@ -437,6 +523,32 @@
   <!-- CURSOR -->
   <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       CV LANGUAGE SELECTION MODAL
+       ═══════════════════════════════════════════════════════════════ -->
+  <div class="cv-modal-overlay" id="cvModal" role="dialog" aria-modal="true" aria-labelledby="cvModalTitle">
+    <div class="cv-modal">
+      <button class="cv-modal-close" onclick="closeCvModal()" aria-label="Fermer">✕</button>
+      <div class="cv-modal-eyebrow">Curriculum Vitae</div>
+      <h2 class="cv-modal-title" id="cvModalTitle">Choisissez la <em>langue</em></h2>
+      <p class="cv-modal-sub">Sélectionnez la version souhaitée pour télécharger le CV.</p>
+      <div class="cv-lang-options">
+        <a href="CV_français.pdf" download="CV_Jichi_Sosthene_FR.pdf" class="cv-lang-btn" onclick="closeCvModal()">
+          <div class="cv-lang-flag">🇫🇷</div>
+          <div class="cv-lang-label">Version</div>
+          <div class="cv-lang-name">Français</div>
+          <div class="cv-lang-dl">Télécharger →</div>
+        </a>
+        <a href="CV_anglais.pdf" download="CV_Jichi_Sosthene_EN.pdf" class="cv-lang-btn" onclick="closeCvModal()">
+          <div class="cv-lang-flag">🇬🇧</div>
+          <div class="cv-lang-label">Version</div>
+          <div class="cv-lang-name">English</div>
+          <div class="cv-lang-dl">Download →</div>
+        </a>
+      </div>
+    </div>
+  </div>
 
   <!-- NAV -->
   <nav>
@@ -448,7 +560,7 @@
       <li><a href="#docs">Documents</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <a href="Libre_CV.pdf" download="CV_Jichi_Sosthene.pdf" class="nav-cta">Télécharger CV</a>
+    <button class="nav-cta" onclick="openCvModal()">Télécharger CV</button>
   </nav>
 
   <!-- HERO -->
@@ -592,11 +704,12 @@
     </div>
     <p class="docs-intro reveal">Retrouvez ici mon curriculum vitae, mes publications, rapports et autres documents téléchargeables.</p>
     <div class="docs-grid" id="docs-grid">
+      <!-- CV card — opens language modal -->
       <div class="doc-card reveal reveal-delay-1">
         <div class="doc-ext">PDF</div>
         <div class="doc-title">Curriculum Vitae</div>
-        <div class="doc-meta">CV · Libre_CV</div>
-        <a href="Libre_CV.pdf" download="CV_Jichi_Sosthene.pdf" class="doc-dl">Télécharger</a>
+        <div class="doc-meta">Disponible en Français & English</div>
+        <button class="doc-dl" onclick="openCvModal()">Télécharger</button>
       </div>
       <div class="doc-card reveal reveal-delay-2">
         <div class="doc-ext">PDF</div>
@@ -666,9 +779,6 @@
         </div>
       </div>
 
-      <!-- ═══════════════════════════════════════════════════════════
-           FORMULAIRE — connecté à EmailJS
-           ═══════════════════════════════════════════════════════════ -->
       <div class="contact-form reveal reveal-delay-2" id="contactForm">
         <div class="form-group">
           <label class="form-label">Nom complet</label>
@@ -707,7 +817,29 @@
 
   <script>
     // ═══════════════════════════════════════════════════════════════════
-    // EMAILJS — Configuration
+    // CV MODAL
+    // ═══════════════════════════════════════════════════════════════════
+    function openCvModal() {
+      const modal = document.getElementById('cvModal');
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeCvModal() {
+      const modal = document.getElementById('cvModal');
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    // Close on overlay click
+    document.getElementById('cvModal').addEventListener('click', function(e) {
+      if (e.target === this) closeCvModal();
+    });
+    // Close on Escape
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeCvModal();
+    });
+
+    // ═══════════════════════════════════════════════════════════════════
+    // EMAILJS
     // ═══════════════════════════════════════════════════════════════════
     const EMAILJS_PUBLIC_KEY  = 'RYjnBjtEl45WB7Zqv';
     const EMAILJS_SERVICE_ID  = 'service_xtl0of8';
@@ -799,7 +931,7 @@
       requestAnimationFrame(animRing);
     }
     animRing();
-    document.querySelectorAll('a,button,.project-card,.skill-block,.doc-card').forEach(el => {
+    document.querySelectorAll('a,button,.project-card,.skill-block,.doc-card,.cv-lang-btn').forEach(el => {
       el.addEventListener('mouseenter', () => {
         cursor.style.transform = 'translate(-50%,-50%) scale(2.5)';
         ring.style.width = '56px'; ring.style.height = '56px';
