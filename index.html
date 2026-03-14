@@ -205,10 +205,32 @@
     #about { background: var(--bg2); }
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
     .about-text p { font-size: 15px; color: var(--text2); line-height: 1.85; margin-bottom: 1.5rem; }
-    <div class="about-photo">
-  <img src="eref.jpg" alt="Photo de profil"
-    style="width:100%; height:100%; object-fit:cover; display:block;" />
-</div>
+   voici ce que je vois dans la section about :
+/* ABOUT */
+    #about { background: var(--bg2); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    .about-text p { font-size: 15px; color: var(--text2); line-height: 1.85; margin-bottom: 1.5rem; }
+    
+   .about-photo-placeholder {
+      display: none;
+    }
+    .about-photo {
+      aspect-ratio: 3/4; background: var(--bg3);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+      background-image: url('eref.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+
+
+    
+    .about-details { margin-top: 2.5rem; border-top: 1px solid var(--border); padding-top: 2rem; }
+    .about-detail-row { display: flex; gap: 1rem; margin-bottom: 1rem; font-size: 14px; }
+    .about-detail-label { color: var(--text3); min-width: 90px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
+    .about-detail-val { color: var(--text); }
     .about-details { margin-top: 2.5rem; border-top: 1px solid var(--border); padding-top: 2rem; }
     .about-detail-row { display: flex; gap: 1rem; margin-bottom: 1rem; font-size: 14px; }
     .about-detail-label { color: var(--text3); min-width: 90px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
@@ -433,7 +455,7 @@
 
     <div class="hero-content">
       <div class="hero-eyebrow">Portfolio · Économie & Quantitatif</div>
-      <h1 class="hero-name"><em>Sosthène</em><br>& Jichi</h1>
+      <h1 class="hero-name"><em>Jichi</em><br>Sosthène</h1>
       <p class="hero-role">Économiste · Statisticien · Analyste Quantitatif</p>
       <p class="hero-desc">Spécialisé dans la modélisation économique, l'inférence statistique et l'analyse de données. Je transforme des données complexes en décisions éclairées.</p>
       <div class="hero-actions">
