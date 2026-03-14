@@ -205,15 +205,7 @@
     #about { background: var(--bg2); }
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
     .about-text p { font-size: 15px; color: var(--text2); line-height: 1.85; margin-bottom: 1.5rem; }
-   voici ce que je vois dans la section about :
-/* ABOUT */
-    #about { background: var(--bg2); }
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
-    .about-text p { font-size: 15px; color: var(--text2); line-height: 1.85; margin-bottom: 1.5rem; }
-    
-   .about-photo-placeholder {
-      display: none;
-    }
+    .about-photo-placeholder { display: none; }
     .about-photo {
       aspect-ratio: 3/4; background: var(--bg3);
       border: 1px solid var(--border);
@@ -223,14 +215,6 @@
       background-size: cover;
       background-position: center;
     }
-
-
-
-    
-    .about-details { margin-top: 2.5rem; border-top: 1px solid var(--border); padding-top: 2rem; }
-    .about-detail-row { display: flex; gap: 1rem; margin-bottom: 1rem; font-size: 14px; }
-    .about-detail-label { color: var(--text3); min-width: 90px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
-    .about-detail-val { color: var(--text); }
     .about-details { margin-top: 2.5rem; border-top: 1px solid var(--border); padding-top: 2rem; }
     .about-detail-row { display: flex; gap: 1rem; margin-bottom: 1rem; font-size: 14px; }
     .about-detail-label { color: var(--text3); min-width: 90px; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
@@ -438,7 +422,8 @@
       <li><a href="#docs">Documents</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <a href="#docs" class="nav-cta">Télécharger CV</a>
+    <!-- FIX 1 : bouton "Télécharger CV" → vrai lien de téléchargement -->
+    <a href="Libre_CV.pdf" download="CV_Jichi_Sosthene.pdf" class="nav-cta">Télécharger CV</a>
   </nav>
 
   <!-- HERO -->
@@ -456,8 +441,8 @@
     <div class="hero-content">
       <div class="hero-eyebrow">Portfolio · Jichi Sosthène</div>
       <h1 class="hero-name"><em>Jichi</em><br>Sosthène</h1>
-      <p class="hero-role"> Mathématiques · Economies · Statitiques</p>
-      <p class="hero-desc">Erudiant en filière matématiques , économies et statistiques .  Je transforme des données complexes en décisions éclairées. Je transforme des données complexes en décisions éclairées.</p>
+      <p class="hero-role">Mathématiques · Économie · Statistiques</p>
+      <p class="hero-desc">Étudiant en filière Mathématiques, Économie et Statistiques. Je transforme des données complexes en décisions éclairées.</p>
       <div class="hero-actions">
         <a href="#projects" class="btn-primary">Voir mes projets</a>
         <a href="#about" class="btn-secondary">En savoir plus</a>
@@ -466,7 +451,7 @@
 
     <div class="hero-stats">
       <div class="hero-stat">
-        <div class="hero-stat-num">3<span></div>
+        <div class="hero-stat-num">3<span></span></div>
         <div class="hero-stat-label">Niveau Bachelor</div>
       </div>
       <div class="hero-stat">
@@ -474,7 +459,7 @@
         <div class="hero-stat-label">Projets réalisés</div>
       </div>
       <div class="hero-stat">
-        <div class="hero-stat-num">2<span></div>
+        <div class="hero-stat-num">2<span></span></div>
         <div class="hero-stat-label">Publications</div>
       </div>
     </div>
@@ -490,7 +475,7 @@
     </div>
     <div class="about-grid">
       <div class="about-text reveal reveal-delay-1">
-         <p>Suivant une formation en Mathématiques , Economies et Statistiques. J'interviens sur des problématiques quantitatives et qualitatives complexes à la frontière entre la théorie économique et la donnée.</p>
+        <p>Suivant une formation en Mathématiques, Économie et Statistiques. J'interviens sur des problématiques quantitatives et qualitatives complexes à la frontière entre la théorie économique et la donnée.</p>
         <p>Mon approche mêle rigueur académique et pragmatisme analytique : modélisation économétrique, analyse de séries temporelles ou forecasting, Sampling methods, analyse et visualisation de données font partie de mon quotidien.</p>
         <p>Basé à Abidjan, j'ai déjà une expérience avec des organisations internationales telles que le HCR pour apporter une lecture chiffrée et structurée des enjeux économiques contemporains.</p>
         <div class="about-details">
@@ -513,39 +498,41 @@
       <h2 class="section-title">Outils & <em>expertises</em></h2>
     </div>
     <div class="skills-layout">
+
       <div class="skill-block reveal reveal-delay-1">
         <div class="skill-block-title">Économie & Modélisation</div>
-        <div class="skill-item"><div class="skill-row"><span class="skill-name">Économétrie</span><span class="skill-pct">80%</span></div><div class="skill-bar"><div class="skill-fill" data-width="95"></div></div></div>
-        <div class="skill-item"><div class="skill-row"><span class="skill-name">Macroéconomie</span><span class="skill-pct">83%</span></div><div class="skill-bar"><div class="skill-fill" data-width="90"></div></div></div>
-        <div class="skill-item"><div class="skill-row"><span class="skill-name">Microéconommie</span><span class="skill-pct">82%</span></div><div class="skill-bar"><div class="skill-fill" data-width="82"></div></div></div>
-        <div class="skill-item"><div class="skill-row"><span class="skill-name">Forecasting</span><span class="skill-pct">80%</span></div><div class="skill-bar"><div class="skill-fill" data-width="88"></div></div></div>
-         <div class="skill-item"><div class="skill-row"><span class="skill-name">Sampling technics</span><span class="skill-pct">88%</span></div><div class="skill-bar"><div class="skill-fill" data-width="78"></div></div></div>
-        
+        <!-- FIX 2 : data-width est retiré — la jauge lit automatiquement skill-pct -->
+        <div class="skill-item"><div class="skill-row"><span class="skill-name">Économétrie</span><span class="skill-pct">80%</span></div><div class="skill-bar"><div class="skill-fill"></div></div></div>
+        <div class="skill-item"><div class="skill-row"><span class="skill-name">Macroéconomie</span><span class="skill-pct">83%</span></div><div class="skill-bar"><div class="skill-fill"></div></div></div>
+        <div class="skill-item"><div class="skill-row"><span class="skill-name">Microéconomie</span><span class="skill-pct">82%</span></div><div class="skill-bar"><div class="skill-fill"></div></div></div>
+        <div class="skill-item"><div class="skill-row"><span class="skill-name">Forecasting</span><span class="skill-pct">80%</span></div><div class="skill-bar"><div class="skill-fill"></div></div></div>
+        <div class="skill-item"><div class="skill-row"><span class="skill-name">Sampling technics</span><span class="skill-pct">88%</span></div><div class="skill-bar"><div class="skill-fill"></div></div></div>
       </div>
+
       <div class="skill-block reveal reveal-delay-2">
         <div class="skill-block-title">Mathématiques & Statistiques</div>
-        <div class="skill-item"><div class="skill-row"><span class="skill-name">Statistiques Descriptives</span><span class="skill-pct">85%</span></div><div class="skill-bar"><div class="skill-fill" data-width="93"></div></div></div>
-        <div class="skill-item"><div class="skill-row"><span class="skill-name">Statistiques inférentielles</span><span class="skill-pct">81%</span></div><div class="skill-bar"><div class="skill-fill" data-width="93"></div></div></div>
-        <div class="skill-item"><div class="skill-row"><span class="skill-name">Séries temporelles</span><span class="skill-pct">85%</span></div><div class="skill-bar"><div class="skill-fill" data-width="87"></div></div></div>
-        <div class="skill-item"><div class="skill-row"><span class="skill-name">Sampling technics</span><span class="skill-pct">88%</span></div><div class="skill-bar"><div class="skill-fill" data-width="78"></div></div></div>
-        
+        <div class="skill-item"><div class="skill-row"><span class="skill-name">Statistiques descriptives</span><span class="skill-pct">85%</span></div><div class="skill-bar"><div class="skill-fill"></div></div></div>
+        <div class="skill-item"><div class="skill-row"><span class="skill-name">Statistiques inférentielles</span><span class="skill-pct">81%</span></div><div class="skill-bar"><div class="skill-fill"></div></div></div>
+        <div class="skill-item"><div class="skill-row"><span class="skill-name">Séries temporelles</span><span class="skill-pct">85%</span></div><div class="skill-bar"><div class="skill-fill"></div></div></div>
+        <div class="skill-item"><div class="skill-row"><span class="skill-name">Sampling technics</span><span class="skill-pct">88%</span></div><div class="skill-bar"><div class="skill-fill"></div></div></div>
       </div>
+
       <div class="skill-block reveal reveal-delay-3">
         <div class="skill-block-title">Programmation & Outils</div>
-        <div class="skill-item"><div class="skill-row"><span class="skill-name">Python (Pandas, NumPy, Sklearn)</span><span class="skill-pct">40%</span></div><div class="skill-bar"><div class="skill-fill" data-width="88"></div></div></div>
-        <div class="skill-item"><div class="skill-row"><span class="skill-name">R / RStudio</span><span class="skill-pct">88%</span></div><div class="skill-bar"><div class="skill-fill" data-width="92"></div></div></div>
-        <div class="skill-item"><div class="skill-row"><span class="skill-name">Stata </span><span class="skill-pct">85%</span></div><div class="skill-bar"><div class="skill-fill" data-width="85"></div></div></div>
-        <div class="skill-item"><div class="skill-row"><span class="skill-name">LaTeX /Overleaf</span><span class="skill-pct">90%</span></div><div class="skill-bar"><div class="skill-fill" data-width="90"></div></div></div>
+        <div class="skill-item"><div class="skill-row"><span class="skill-name">Python (Pandas, NumPy, Sklearn)</span><span class="skill-pct">40%</span></div><div class="skill-bar"><div class="skill-fill"></div></div></div>
+        <div class="skill-item"><div class="skill-row"><span class="skill-name">R / RStudio</span><span class="skill-pct">88%</span></div><div class="skill-bar"><div class="skill-fill"></div></div></div>
+        <div class="skill-item"><div class="skill-row"><span class="skill-name">Stata</span><span class="skill-pct">85%</span></div><div class="skill-bar"><div class="skill-fill"></div></div></div>
+        <div class="skill-item"><div class="skill-row"><span class="skill-name">LaTeX / Overleaf</span><span class="skill-pct">90%</span></div><div class="skill-bar"><div class="skill-fill"></div></div></div>
       </div>
+
       <div class="skill-block reveal reveal-delay-4">
         <div class="skill-block-title">Visualisation & BI</div>
-        <div class="skill-item"><div class="skill-row"><span class="skill-name">Power BI</span><span class="skill-pct">80%</span></div><div class="skill-bar"><div class="skill-fill" data-width="80"></div></div></div>
-       <div class="skill-item"><div class="skill-row"><span class="skill-name">QGIS / Seaborn</span><span class="skill-pct">86%</span></div><div class="skill-bar"><div class="skill-fill" data-width="86"></div></div></div>
-        <div class="skill-item"><div class="skill-row"><span class="skill-name">Excel </span><span class="skill-pct">85%</span></div><div class="skill-bar"><div class="skill-fill" data-width="95"></div></div></div>
-        <div class="skill-tags">
-         
-        </div>
+        <div class="skill-item"><div class="skill-row"><span class="skill-name">Power BI</span><span class="skill-pct">80%</span></div><div class="skill-bar"><div class="skill-fill"></div></div></div>
+        <div class="skill-item"><div class="skill-row"><span class="skill-name">QGIS / Seaborn</span><span class="skill-pct">86%</span></div><div class="skill-bar"><div class="skill-fill"></div></div></div>
+        <div class="skill-item"><div class="skill-row"><span class="skill-name">Excel</span><span class="skill-pct">85%</span></div><div class="skill-bar"><div class="skill-fill"></div></div></div>
+        <div class="skill-tags"></div>
       </div>
+
     </div>
   </section>
 
@@ -558,36 +545,33 @@
     <div class="projects-grid">
       <div class="project-card featured reveal reveal-delay-1">
         <div class="project-num">001</div>
-        <div class="project-type">Analyse Sociologique et Economique </div>
-        <div class="project-title">Etude Socio-Ethnographique des Réfugiés au Nord de la Côte d'Ivoire et du Bénin</div>
-        <p class="project-desc">Cette étude menée au nord du Bénin et de la Côte d’Ivoire adopte une approche mixte (qualitative et quantitative) pour collecter des données de terrain, analyser la composition sociologique des réfugiés et produire des informations utiles à l’élaboration de politiques favorisant leur autonomie et réduisant les coûts d’assistance.</p>
+        <div class="project-type">Analyse Sociologique et Économique</div>
+        <div class="project-title">Étude Socio-Ethnographique des Réfugiés au Nord de la Côte d'Ivoire et du Bénin</div>
+        <p class="project-desc">Cette étude menée au nord du Bénin et de la Côte d'Ivoire adopte une approche mixte (qualitative et quantitative) pour collecter des données de terrain, analyser la composition sociologique des réfugiés et produire des informations utiles à l'élaboration de politiques favorisant leur autonomie et réduisant les coûts d'assistance.</p>
         <div class="project-meta"><span class="project-tag">Python</span><span class="project-tag">Overleaf</span><span class="project-tag">Canva</span><span class="project-tag">AI</span></div>
         <a href="#docs" class="project-link">Voir le rapport</a>
       </div>
       <div class="project-card reveal reveal-delay-2">
         <div class="project-num">002</div>
-        <div class="project-type">Analyse Economique</div>
-        <div class="project-title">Impact de la Taxe Carbonne Suédoise sur les émissions de CO₂ </div>
-        <p class="project-desc">Cette étude analyse l’impact de la taxe carbone suédoise introduite en 1991 en Suède sur les émissions de CO₂ et le PIB par habitant (1981–2020). En s’appuyant sur les concepts de taxe pigouvienne et de la courbe environnementale de Kuznets, l’analyse quantitative montre qu’il est possible de réduire les émissions tout en maintenant la croissance économique.</p>
-        <div class="project-meta"><span class="project-tag">R</span><span class="project-tag">Python</span><span class="project-tag">></div>
-        
+        <div class="project-type">Analyse Économique</div>
+        <div class="project-title">Impact de la Taxe Carbone Suédoise sur les émissions de CO₂</div>
+        <p class="project-desc">Cette étude analyse l'impact de la taxe carbone suédoise introduite en 1991 sur les émissions de CO₂ et le PIB par habitant (1981–2020). En s'appuyant sur les concepts de taxe pigouvienne et de la courbe environnementale de Kuznets, l'analyse quantitative montre qu'il est possible de réduire les émissions tout en maintenant la croissance économique.</p>
+        <div class="project-meta"><span class="project-tag">R</span><span class="project-tag">Python</span></div>
       </div>
       <div class="project-card reveal reveal-delay-1">
         <div class="project-num">003</div>
         <div class="project-type">Suivi de Données</div>
-        <div class="project-title">Communauté Réligieuse</div>
-        <p class="project-desc">Suivi et collecte de données au sein d’une église pour mieux comprendre la communauté et faciliter la gestion des activités. .</p>
-        <div class="project-meta"><span class="project-tag">Excel</span><span class="project-tag">R</span><span class="project-tag">Google form</span></div>
+        <div class="project-title">Communauté Religieuse</div>
+        <p class="project-desc">Suivi et collecte de données au sein d'une église pour mieux comprendre la communauté et faciliter la gestion des activités.</p>
+        <div class="project-meta"><span class="project-tag">Excel</span><span class="project-tag">R</span><span class="project-tag">Google Form</span></div>
         <a href="#docs" class="project-link">Voir l'étude</a>
       </div>
-      
       <div class="project-card reveal reveal-delay-3">
         <div class="project-num">005</div>
         <div class="project-type">Sociologie</div>
-        <div class="project-title">Mémoire Master  </div>
-        <p class="project-desc">Assistant de Recherche pour une étude sociologique.Intervention au niveau de la méthode de collecte et de la confection des cartes QGIS</p>
+        <div class="project-title">Mémoire Master</div>
+        <p class="project-desc">Assistant de Recherche pour une étude sociologique. Intervention au niveau de la méthode de collecte et de la confection des cartes QGIS.</p>
         <div class="project-meta"><span class="project-tag">QGIS</span><span class="project-tag">Kobotool</span><span class="project-tag">Excel</span></div>
-        
       </div>
     </div>
   </section>
@@ -599,12 +583,12 @@
       <h2 class="section-title">CV & <em>Ressources</em></h2>
     </div>
     <p class="docs-intro reveal">Retrouvez ici mon curriculum vitae, mes publications, rapports et autres documents téléchargeables. Glissez vos propres fichiers pour les ajouter.</p>
-   <div class="docs-grid" id="docs-grid">
+    <div class="docs-grid" id="docs-grid">
       <div class="doc-card reveal reveal-delay-1">
         <div class="doc-ext">PDF</div>
         <div class="doc-title">Curriculum Vitae</div>
         <div class="doc-meta">CV · Libre_CV</div>
-        <a href="Libre_CV.pdf" download class="doc-dl">Télécharger</a>
+        <a href="Libre_CV.pdf" download="CV_Jichi_Sosthene.pdf" class="doc-dl">Télécharger</a>
       </div>
       <div class="doc-card reveal reveal-delay-2">
         <div class="doc-ext">PDF</div>
@@ -630,6 +614,7 @@
         <div class="doc-meta">Étude de marché · Août</div>
         <a href="MARCHE_VALENTIN.pdf" download class="doc-dl">Télécharger</a>
       </div>
+    </div>
   </section>
 
   <!-- CONTACT -->
@@ -641,10 +626,10 @@
     <div class="contact-layout">
       <div>
         <div class="contact-text reveal">
-          <p>Disponible pour des missions, des collaborations de recherche ou des Stages. N'hésitez pas à me contacter pour discuter de vos projets.</p>
+          <p>Disponible pour des missions, des collaborations de recherche ou des stages. N'hésitez pas à me contacter pour discuter de vos projets.</p>
         </div>
         <div class="contact-links reveal reveal-delay-1">
-          <a href="sosthenejichi@email.com" class="contact-link">
+          <a href="mailto:sosthenejichi@email.com" class="contact-link">
             <div class="contact-link-icon">@</div>
             sosthenejichi@email.com
           </a>
@@ -683,7 +668,7 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-text">© 2026 · Tous droits réservés</div>
-    <div class="footer-name">Jichi SOsthène</div>
+    <div class="footer-name">Jichi Sosthène</div>
     <div class="footer-text">Abidjan, Côte d'Ivoire</div>
   </footer>
 
@@ -710,12 +695,22 @@
     }, { threshold: 0.1 });
     revealEls.forEach(el => obs.observe(el));
 
-    // SKILL BARS
+    // ─────────────────────────────────────────────────────────────────
+    // FIX 2 — SKILL BARS : la jauge lit automatiquement le texte
+    // de .skill-pct (ex : "83%") sans avoir besoin de data-width.
+    // Pour changer le niveau d'une barre, il suffit de modifier
+    // le pourcentage affiché dans le HTML → la jauge s'adapte seule.
+    // ─────────────────────────────────────────────────────────────────
     const skillObs = new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        if(entry.isIntersecting) {
-          entry.target.querySelectorAll('.skill-fill').forEach(bar => {
-            bar.style.width = bar.dataset.width + '%';
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('.skill-item').forEach(item => {
+            const pctEl = item.querySelector('.skill-pct');
+            const fill  = item.querySelector('.skill-fill');
+            if (pctEl && fill) {
+              const pct = parseFloat(pctEl.textContent.replace('%', ''));
+              if (!isNaN(pct)) fill.style.width = pct + '%';
+            }
           });
           skillObs.unobserve(entry.target);
         }
@@ -725,14 +720,16 @@
 
     // FILE UPLOAD
     const zone = document.getElementById('upload-zone');
-    zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('drag-over'); });
-    zone.addEventListener('dragleave', () => zone.classList.remove('drag-over'));
-    zone.addEventListener('drop', e => { e.preventDefault(); zone.classList.remove('drag-over'); handleFiles(e.dataTransfer.files); });
+    if (zone) {
+      zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('drag-over'); });
+      zone.addEventListener('dragleave', () => zone.classList.remove('drag-over'));
+      zone.addEventListener('drop', e => { e.preventDefault(); zone.classList.remove('drag-over'); handleFiles(e.dataTransfer.files); });
+    }
 
     function handleFiles(files) {
       const grid = document.getElementById('docs-grid');
-      Array.from(files).forEach((f, i) => {
-        const ext = f.name.split('.').pop().toUpperCase();
+      Array.from(files).forEach(f => {
+        const ext  = f.name.split('.').pop().toUpperCase();
         const size = f.size > 1024*1024 ? (f.size/(1024*1024)).toFixed(1)+' Mo' : Math.round(f.size/1024)+' Ko';
         const card = document.createElement('div');
         card.className = 'doc-card reveal visible';
