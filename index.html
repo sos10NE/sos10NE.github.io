@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio —Jichi Sosthène</title>
+  <title>Portfolio — Jichi Sosthène</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Syne:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -198,7 +198,6 @@
       color: var(--gold); font-weight: 400; margin-bottom: 1rem;
       display: flex; align-items: center; gap: 16px;
     }
-    .section-num::before { content: ''; width: 32px; height: 1px; background: var(--gold); }
     .section-title {
       font-family: var(--serif); font-size: clamp(36px, 5vw, 56px);
       font-weight: 300; line-height: 1.15; color: var(--text);
@@ -257,28 +256,109 @@
 
     /* PROJECTS */
     #projects { background: var(--bg2); }
-    .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+
+    /* Grille 3 colonnes : lignes 2+1, 1+2, 1+2, cartes de même hauteur */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      align-items: stretch;
+    }
+
     .project-card {
-      background: var(--bg3); border: 1px solid var(--border);
-      padding: 2rem; position: relative; overflow: hidden;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
       transition: border-color 0.3s, transform 0.3s;
       cursor: pointer;
     }
+
     .project-card::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0;
-      height: 1px; background: linear-gradient(90deg, transparent, var(--gold), transparent);
-      transform: scaleX(0); transition: transform 0.4s ease;
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      transform: scaleX(0);
+      transition: transform 0.4s ease;
     }
-    .project-card:hover { border-color: rgba(201,165,92,0.3); transform: translateY(-4px); }
+
+    .project-card:hover {
+      border-color: rgba(201,165,92,0.3);
+      transform: translateY(-4px);
+    }
+
     .project-card:hover::before { transform: scaleX(1); }
     .project-card.featured { grid-column: span 2; }
-    .project-num { font-size: 11px; letter-spacing: 0.15em; color: var(--text3); margin-bottom: 1.5rem; font-family: var(--serif); font-style: italic; }
-    .project-type { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
-    .project-title { font-family: var(--serif); font-size: 20px; font-weight: 400; color: var(--text); margin-bottom: 1rem; line-height: 1.3; }
-    .project-desc { font-size: 13px; color: var(--text2); line-height: 1.75; margin-bottom: 1.5rem; }
-    .project-meta { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 1.5rem; }
-    .project-tag { font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 10px; border: 1px solid var(--border2); color: var(--text3); }
-    .project-link { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); text-decoration: none; display: flex; align-items: center; gap: 8px; transition: gap 0.2s; }
+
+    .project-num {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      color: var(--text3);
+      margin-bottom: 1rem;
+      font-family: var(--serif);
+      font-style: italic;
+    }
+
+    .project-type {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+
+    .project-title {
+      font-family: var(--serif);
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+
+    .project-desc {
+      font-size: 13px;
+      color: var(--text2);
+      line-height: 1.65;
+      flex-grow: 1;
+      margin-bottom: 1.25rem;
+    }
+
+    .project-meta {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: auto;
+      margin-bottom: 1rem;
+    }
+
+    .project-tag {
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border: 1px solid var(--border2);
+      color: var(--text3);
+    }
+
+    .project-link {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: gap 0.2s;
+    }
     .project-link:hover { gap: 12px; }
 
     /* DOCUMENTS / CV */
@@ -346,7 +426,8 @@
     .form-submit:hover:not(:disabled) { background: var(--gold2); }
     .form-submit:disabled { opacity: 0.6; cursor: not-allowed; }
     .form-submit.success { background: var(--green); color: #fff; }
-    .form-submit.error   { background: var(--red);   color: #fff; }
+    .form-submit.error   { background: var(--red); color: #fff; }
+
     .spinner {
       width: 14px; height: 14px;
       border: 2px solid rgba(11,12,15,0.3);
@@ -373,9 +454,7 @@
     .footer-text { font-size: 12px; color: var(--text3); letter-spacing: 0.05em; }
     .footer-name { font-family: var(--serif); font-size: 16px; color: var(--text2); font-weight: 300; font-style: italic; }
 
-    /* ═══════════════════════════════════════════════════════════════
-       CV LANGUAGE MODAL
-       ═══════════════════════════════════════════════════════════════ */
+    /* CV LANGUAGE MODAL */
     .cv-modal-overlay {
       position: fixed; inset: 0; z-index: 1000;
       background: rgba(11,12,15,0.85);
@@ -518,15 +597,14 @@
     }
   </style>
 </head>
+
 <body>
 
   <!-- CURSOR -->
   <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursorRing"></div>
 
-  <!-- ═══════════════════════════════════════════════════════════════
-       CV LANGUAGE SELECTION MODAL
-       ═══════════════════════════════════════════════════════════════ -->
+  <!-- CV LANGUAGE SELECTION MODAL -->
   <div class="cv-modal-overlay" id="cvModal" role="dialog" aria-modal="true" aria-labelledby="cvModalTitle">
     <div class="cv-modal">
       <button class="cv-modal-close" onclick="closeCvModal()" aria-label="Fermer">✕</button>
@@ -550,13 +628,13 @@
     </div>
   </div>
 
-  <!-- NAV -->
+  <!-- NAVIGATION -->
   <nav>
     <div class="nav-logo">J<span>.</span>Sosthène</div>
     <ul class="nav-links">
       <li><a href="#about">À propos</a></li>
       <li><a href="#skills">Compétences</a></li>
-      <li><a href="#projects">Projets</a></li>
+      <li><a href="#projects">Études & réalisations</a></li>
       <li><a href="#docs">Documents</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -574,43 +652,75 @@
       </defs>
       <rect width="100%" height="100%" fill="url(#grid)"/>
     </svg>
+
     <div class="hero-content">
       <div class="hero-eyebrow">Portfolio · Jichi Sosthène</div>
       <h1 class="hero-name"><em>Jichi</em><br>Sosthène</h1>
       <p class="hero-role">Mathématiques · Économie · Statistiques</p>
-      <p class="hero-desc">Étudiant en filière Mathématiques, Économie et Statistiques. Je transforme des données complexes en décisions éclairées.</p>
+      <p class="hero-desc">Étudiant en Bachelor 4 à l’African School of Economics, en Mathématiques, Économie et Statistiques. Je m’intéresse à l’analyse des phénomènes économiques et sociaux, ainsi qu’à l’exploitation des données pour éclairer la décision.</p>
       <div class="hero-actions">
         <a href="#projects" class="btn-primary">Voir mes projets</a>
         <a href="#about" class="btn-secondary">En savoir plus</a>
       </div>
     </div>
+
     <div class="hero-stats">
-      <div class="hero-stat"><div class="hero-stat-num">3<span></span></div><div class="hero-stat-label">Niveau Bachelor</div></div>
-      <div class="hero-stat"><div class="hero-stat-num">3<span>+</span></div><div class="hero-stat-label">Projets réalisés</div></div>
-      <div class="hero-stat"><div class="hero-stat-num">2<span></span></div><div class="hero-stat-label">Publications</div></div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">4<span></span></div>
+        <div class="hero-stat-label">Bachelor</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">3<span>+</span></div>
+        <div class="hero-stat-label">Projets réalisés</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">2<span></span></div>
+        <div class="hero-stat-label">Publications</div>
+      </div>
     </div>
+
     <div class="hero-scroll">Scroll</div>
   </section>
 
   <!-- ABOUT -->
   <section id="about">
     <div class="section-header reveal">
-      <div class="section-num">01 — À propos</div>
+      <div class="section-num">01 · À propos</div>
       <h2 class="section-title">Rigueur théorique &<br><em>vision analytique</em></h2>
     </div>
+
     <div class="about-grid">
       <div class="about-text reveal reveal-delay-1">
-        <p>Suivant une formation en Mathématiques, Économie et Statistiques. J'interviens sur des problématiques quantitatives et qualitatives complexes à la frontière entre la théorie économique et la donnée.</p>
-        <p>Mon approche mêle rigueur académique et pragmatisme analytique : modélisation économétrique, analyse de séries temporelles ou forecasting, Sampling methods, analyse et visualisation de données font partie de mon quotidien.</p>
-        <p>Basé à Abidjan, j'ai déjà une expérience avec des organisations internationales telles que le HCR pour apporter une lecture chiffrée et structurée des enjeux économiques contemporains.</p>
+        <p>Actuellement en quatrième année de Bachelor à l’African School of Economics, je suis une formation en Mathématiques, Économie et Statistiques. Mon parcours me permet d’aborder des problématiques économiques et sociales à travers des approches quantitatives et qualitatives.</p>
+
+        <p>Je m’intéresse notamment à l’analyse économique, aux méthodes statistiques, à l’analyse de données et aux travaux de recherche appliquée. Mes expériences m’ont également familiarisé avec les enquêtes de terrain, le travail archivistique et l’analyse de phénomènes sociaux.</p>
+
+        <p>J’ai contribué à des travaux de recherche menés dans le cadre de projets impliquant le HCR et l’Université de Princeton, avec des expériences portant sur les dynamiques migratoires, les contextes post-conflit et les réalités socio-économiques en Afrique de l’Ouest.</p>
+
         <div class="about-details">
-          <div class="about-detail-row"><span class="about-detail-label">Localisation</span><span class="about-detail-val">Abidjan, Côte d'Ivoire</span></div>
-          <div class="about-detail-row"><span class="about-detail-label">Université</span><span class="about-detail-val">African School of Economics</span></div>
-          <div class="about-detail-row"><span class="about-detail-label">Disponibilité</span><span class="about-detail-val">Internship (2026 - 2027)</span></div>
-          <div class="about-detail-row"><span class="about-detail-label">Langues</span><span class="about-detail-val">Français · Anglais</span></div>
-          <div class="about-detail-row"><span class="about-detail-label">Formation</span><span class="about-detail-val">M.E.S</span></div>
+          <div class="about-detail-row">
+            <span class="about-detail-label">Localisation</span>
+            <span class="about-detail-val">Abidjan, Côte d'Ivoire</span>
+          </div>
+          <div class="about-detail-row">
+            <span class="about-detail-label">Université</span>
+            <span class="about-detail-val">African School of Economics · Bachelor 4</span>
+          </div>
+          <div class="about-detail-row">
+            <span class="about-detail-label">Disponibilité</span>
+            <span class="about-detail-val">Internship (2026 - 2027)</span>
+          </div>
+          <div class="about-detail-row">
+            <span class="about-detail-label">Langues</span>
+            <span class="about-detail-val">Français · Anglais</span>
+          </div>
+          <div class="about-detail-row">
+            <span class="about-detail-label">Formation</span>
+            <span class="about-detail-val">M.E.S</span>
+          </div>
         </div>
       </div>
+
       <div class="about-photo reveal reveal-delay-2">
         <div class="about-photo-placeholder">VN</div>
       </div>
@@ -620,158 +730,342 @@
   <!-- SKILLS -->
   <section id="skills">
     <div class="section-header reveal">
-      <div class="section-num">02 — Compétences</div>
+      <div class="section-num">02 · Compétences</div>
       <h2 class="section-title">Outils & <em>expertises</em></h2>
     </div>
+
     <div class="skills-layout">
       <div class="skill-block reveal reveal-delay-1">
         <div class="skill-block-title">Économie & Modélisation</div>
-        <div class="skill-item"><div class="skill-row"><span class="skill-name">Économétrie</span><span class="skill-pct">80%</span></div><div class="skill-bar"><div class="skill-fill"></div></div></div>
-        <div class="skill-item"><div class="skill-row"><span class="skill-name">Macroéconomie</span><span class="skill-pct">83%</span></div><div class="skill-bar"><div class="skill-fill"></div></div></div>
-        <div class="skill-item"><div class="skill-row"><span class="skill-name">Microéconomie</span><span class="skill-pct">82%</span></div><div class="skill-bar"><div class="skill-fill"></div></div></div>
-        <div class="skill-item"><div class="skill-row"><span class="skill-name">Forecasting</span><span class="skill-pct">80%</span></div><div class="skill-bar"><div class="skill-fill"></div></div></div>
-        <div class="skill-item"><div class="skill-row"><span class="skill-name">Sampling technics</span><span class="skill-pct">88%</span></div><div class="skill-bar"><div class="skill-fill"></div></div></div>
+
+        <div class="skill-item">
+          <div class="skill-row">
+            <span class="skill-name">Économétrie</span>
+            <span class="skill-pct">80%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill"></div></div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-row">
+            <span class="skill-name">Macroéconomie</span>
+            <span class="skill-pct">83%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill"></div></div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-row">
+            <span class="skill-name">Microéconomie</span>
+            <span class="skill-pct">82%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill"></div></div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-row">
+            <span class="skill-name">Forecasting</span>
+            <span class="skill-pct">80%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill"></div></div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-row">
+            <span class="skill-name">Sampling technics</span>
+            <span class="skill-pct">88%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill"></div></div>
+        </div>
       </div>
+
       <div class="skill-block reveal reveal-delay-2">
         <div class="skill-block-title">Mathématiques & Statistiques</div>
-        <div class="skill-item"><div class="skill-row"><span class="skill-name">Statistiques descriptives</span><span class="skill-pct">85%</span></div><div class="skill-bar"><div class="skill-fill"></div></div></div>
-        <div class="skill-item"><div class="skill-row"><span class="skill-name">Statistiques inférentielles</span><span class="skill-pct">81%</span></div><div class="skill-bar"><div class="skill-fill"></div></div></div>
-        <div class="skill-item"><div class="skill-row"><span class="skill-name">Séries temporelles</span><span class="skill-pct">85%</span></div><div class="skill-bar"><div class="skill-fill"></div></div></div>
-        <div class="skill-item"><div class="skill-row"><span class="skill-name">Sampling technics</span><span class="skill-pct">88%</span></div><div class="skill-bar"><div class="skill-fill"></div></div></div>
+
+        <div class="skill-item">
+          <div class="skill-row">
+            <span class="skill-name">Statistiques descriptives</span>
+            <span class="skill-pct">85%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill"></div></div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-row">
+            <span class="skill-name">Statistiques inférentielles</span>
+            <span class="skill-pct">81%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill"></div></div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-row">
+            <span class="skill-name">Séries temporelles</span>
+            <span class="skill-pct">85%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill"></div></div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-row">
+            <span class="skill-name">Sampling technics</span>
+            <span class="skill-pct">88%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill"></div></div>
+        </div>
       </div>
+
       <div class="skill-block reveal reveal-delay-3">
         <div class="skill-block-title">Programmation & Outils</div>
-        <div class="skill-item"><div class="skill-row"><span class="skill-name">Python </span><span class="skill-pct">40%</span></div><div class="skill-bar"><div class="skill-fill"></div></div></div>
-        <div class="skill-item"><div class="skill-row"><span class="skill-name">R / RStudio</span><span class="skill-pct">88%</span></div><div class="skill-bar"><div class="skill-fill"></div></div></div>
-        <div class="skill-item"><div class="skill-row"><span class="skill-name">Stata</span><span class="skill-pct">85%</span></div><div class="skill-bar"><div class="skill-fill"></div></div></div>
-        <div class="skill-item"><div class="skill-row"><span class="skill-name">LaTeX / Overleaf</span><span class="skill-pct">90%</span></div><div class="skill-bar"><div class="skill-fill"></div></div></div>
+
+        <div class="skill-item">
+          <div class="skill-row">
+            <span class="skill-name">Python</span>
+            <span class="skill-pct">40%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill"></div></div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-row">
+            <span class="skill-name">R / RStudio</span>
+            <span class="skill-pct">88%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill"></div></div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-row">
+            <span class="skill-name">Stata</span>
+            <span class="skill-pct">85%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill"></div></div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-row">
+            <span class="skill-name">LaTeX / Overleaf</span>
+            <span class="skill-pct">90%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill"></div></div>
+        </div>
       </div>
+
       <div class="skill-block reveal reveal-delay-4">
         <div class="skill-block-title">Visualisation & BI</div>
-        <div class="skill-item"><div class="skill-row"><span class="skill-name">Power BI</span><span class="skill-pct">80%</span></div><div class="skill-bar"><div class="skill-fill"></div></div></div>
-        <div class="skill-item"><div class="skill-row"><span class="skill-name">QGIS</span><span class="skill-pct">86%</span></div><div class="skill-bar"><div class="skill-fill"></div></div></div>
-        <div class="skill-item"><div class="skill-row"><span class="skill-name">Excel</span><span class="skill-pct">85%</span></div><div class="skill-bar"><div class="skill-fill"></div></div></div>
+
+        <div class="skill-item">
+          <div class="skill-row">
+            <span class="skill-name">Power BI</span>
+            <span class="skill-pct">80%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill"></div></div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-row">
+            <span class="skill-name">QGIS</span>
+            <span class="skill-pct">86%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill"></div></div>
+        </div>
+
+        <div class="skill-item">
+          <div class="skill-row">
+            <span class="skill-name">Excel</span>
+            <span class="skill-pct">85%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill"></div></div>
+        </div>
+
         <div class="skill-tags"></div>
       </div>
     </div>
   </section>
 
-  <!-- PROJECTS -->
+  <!-- PROJECTS : ÉTUDES & RÉALISATIONS -->
   <section id="projects">
     <div class="section-header reveal">
-      <div class="section-num">03 — Projets</div>
+      <div class="section-num">03 · Études & réalisations</div>
       <h2 class="section-title">Études & <em>Réalisations</em></h2>
     </div>
+
     <div class="projects-grid">
+
       <div class="project-card featured reveal reveal-delay-1">
         <div class="project-num">001</div>
         <div class="project-type">Analyse Sociologique et Économique</div>
         <div class="project-title">Étude Socio-Ethnographique des Réfugiés au Nord de la Côte d'Ivoire et du Bénin</div>
         <p class="project-desc">Cette étude menée au nord du Bénin et de la Côte d'Ivoire adopte une approche mixte (qualitative et quantitative) pour collecter des données de terrain, analyser la composition sociologique des réfugiés et produire des informations utiles à l'élaboration de politiques favorisant leur autonomie et réduisant les coûts d'assistance.</p>
-        <div class="project-meta"><span class="project-tag">Python</span><span class="project-tag">Overleaf</span><span class="project-tag">Canva</span><span class="project-tag">AI</span></div>
+        <div class="project-meta">
+          <span class="project-tag">Python</span>
+          <span class="project-tag">Overleaf</span>
+          <span class="project-tag">Canva</span>
+          <span class="project-tag">AI</span>
+        </div>
         <a href="#docs" class="project-link">Voir le rapport</a>
       </div>
+
       <div class="project-card reveal reveal-delay-2">
         <div class="project-num">002</div>
         <div class="project-type">Analyse Économique</div>
         <div class="project-title">Impact de la Taxe Carbone Suédoise sur les émissions de CO₂</div>
         <p class="project-desc">Cette étude analyse l'impact de la taxe carbone suédoise introduite en 1991 sur les émissions de CO₂ et le PIB par habitant (1981–2020). En s'appuyant sur les concepts de taxe pigouvienne et de la courbe environnementale de Kuznets, l'analyse quantitative montre qu'il est possible de réduire les émissions tout en maintenant la croissance économique.</p>
-        <div class="project-meta"><span class="project-tag">R</span><span class="project-tag">Python</span></div>
+        <div class="project-meta">
+          <span class="project-tag">R</span>
+          <span class="project-tag">Python</span>
+        </div>
       </div>
+
       <div class="project-card reveal reveal-delay-1">
         <div class="project-num">003</div>
         <div class="project-type">Suivi de Données</div>
         <div class="project-title">Communauté Religieuse</div>
         <p class="project-desc">Suivi et collecte de données au sein d'une église pour mieux comprendre la communauté et faciliter la gestion des activités.</p>
-        <div class="project-meta"><span class="project-tag">Excel</span><span class="project-tag">R</span><span class="project-tag">Google Form</span></div>
+        <div class="project-meta">
+          <span class="project-tag">Excel</span>
+          <span class="project-tag">R</span>
+          <span class="project-tag">Google Form</span>
+        </div>
         <a href="#docs" class="project-link">Voir l'étude</a>
       </div>
-      <div class="project-card reveal reveal-delay-3">
+
+      <div class="project-card featured reveal reveal-delay-2">
+        <div class="project-num">004</div>
+        <div class="project-type">Université de Princeton · Recherche doctorale</div>
+        <div class="project-title">Enquêtes de terrain et travail archivistique à Duekoué</div>
+        <p class="project-desc">Assistant de recherche auprès d’un doctorant de l’Université de Princeton dans le cadre d’une étude conduite à Duekoué, dans l’ouest de la Côte d’Ivoire. Contribution aux enquêtes de terrain et au travail archivistique autour du sujet : <em>« Immobilité stratégique : conflit et redistribution d’après-guerre (2011) »</em>. Cette expérience a porté sur la documentation et l’analyse de dynamiques locales dans un contexte post-conflit.</p>
+        <div class="project-meta">
+          <span class="project-tag">Enquête de terrain</span>
+          <span class="project-tag">Recherche qualitative</span>
+          <span class="project-tag">Archives</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal reveal-delay-1">
         <div class="project-num">005</div>
         <div class="project-type">Sociologie</div>
         <div class="project-title">Mémoire Master</div>
         <p class="project-desc">Assistant de Recherche pour une étude sociologique. Intervention au niveau de la méthode de collecte et de la confection des cartes QGIS.</p>
-        <div class="project-meta"><span class="project-tag">QGIS</span><span class="project-tag">Kobotool</span><span class="project-tag">Excel</span></div>
+        <div class="project-meta">
+          <span class="project-tag">QGIS</span>
+          <span class="project-tag">Kobotool</span>
+          <span class="project-tag">Excel</span>
+        </div>
       </div>
+
+      <div class="project-card featured reveal reveal-delay-2">
+        <div class="project-num">006</div>
+        <div class="project-type">African Macroeconomics Analyst Program · AMAP 2026</div>
+        <div class="project-title">Participation à un programme sélectif de macroéconomie</div>
+        <p class="project-desc">Certifié à l’issue de l’African Macroeconomics Analyst Program (AMAP), un programme consacré à l’analyse macroéconomique des enjeux africains. La cohorte 2026 a sélectionné 64 participants parmi plus de 1 500 candidatures. Le programme a notamment proposé des interventions de spécialistes et des travaux de groupe sur des problématiques économiques contemporaines.</p>
+        <div class="project-meta">
+          <span class="project-tag">Macroéconomie</span>
+          <span class="project-tag">Analyse économique</span>
+          <span class="project-tag">Programme sélectif</span>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- DOCUMENTS -->
+  <!-- DOCUMENTS & RESSOURCES -->
   <section id="docs">
     <div class="section-header reveal">
-      <div class="section-num">04 — Documents</div>
-      <h2 class="section-title">CV & <em>Ressources</em></h2>
+      <div class="section-num">04 · Ressources</div>
+      <h2 class="section-title">Documents & <em>Ressources</em></h2>
     </div>
+
     <p class="docs-intro reveal">Retrouvez ici mon curriculum vitae, mes publications, rapports et autres documents téléchargeables.</p>
+
     <div class="docs-grid" id="docs-grid">
-      <!-- CV card — opens language modal -->
+
       <div class="doc-card reveal reveal-delay-1">
         <div class="doc-ext">PDF</div>
         <div class="doc-title">Curriculum Vitae</div>
         <div class="doc-meta">Disponible en Français & English</div>
         <button class="doc-dl" onclick="openCvModal()">Télécharger</button>
       </div>
+
+      <div class="doc-card reveal reveal-delay-2">
+        <div class="doc-ext">JPG</div>
+        <div class="doc-title">Certificat AMAP 2026</div>
+        <div class="doc-meta">African Macroeconomics Analyst Program</div>
+        <a href="certificat_AMAP_2026.jpg" download="Certificat_AMAP_2026.jpg" class="doc-dl">Télécharger</a>
+      </div>
+
       <div class="doc-card reveal reveal-delay-2">
         <div class="doc-ext">PDF</div>
         <div class="doc-title">Rapport Bénin · HCR</div>
         <div class="doc-meta">Rapport ASE · UNHCR · 2025</div>
         <a href="benin_report_hcr.pdf" download class="doc-dl">Télécharger</a>
       </div>
+
       <div class="doc-card reveal reveal-delay-3">
         <div class="doc-ext">PDF</div>
         <div class="doc-title">Rapport Côte d'Ivoire · HCR</div>
         <div class="doc-meta">Rapport ASE · UNHCR · 2025</div>
         <a href="ci_report_hcr.pdf" download class="doc-dl">Télécharger</a>
       </div>
+
       <div class="doc-card reveal reveal-delay-1">
         <div class="doc-ext">PDF</div>
         <div class="doc-title">Étude Cocody</div>
         <div class="doc-meta">Analyse · Août</div>
         <a href="COCODY.pdf" download class="doc-dl">Télécharger</a>
       </div>
+
       <div class="doc-card reveal reveal-delay-2">
         <div class="doc-ext">PDF</div>
         <div class="doc-title">Marché Valentin</div>
         <div class="doc-meta">Étude de marché · Août</div>
         <a href="MARCHE_VALENTIN.pdf" download class="doc-dl">Télécharger</a>
       </div>
+
       <div class="doc-card reveal reveal-delay-3">
         <div class="doc-ext">PDF</div>
         <div class="doc-title">Impact de la Taxe Carbone sur les émissions de CO₂</div>
         <div class="doc-meta">Analyse Économique · Taxe Carbone Suédoise</div>
         <a href="impact_of_tax carbon_on_CO2_emissions.pdf" download class="doc-dl">Télécharger</a>
       </div>
+
     </div>
   </section>
 
   <!-- CONTACT -->
   <section id="contact">
     <div class="section-header reveal">
-      <div class="section-num">05 — Contact</div>
+      <div class="section-num">05 · Contact</div>
       <h2 class="section-title">Travaillons <em>ensemble</em></h2>
     </div>
+
     <div class="contact-layout">
       <div>
         <div class="contact-text reveal">
           <p>Disponible pour des missions, des collaborations de recherche ou des stages. N'hésitez pas à me contacter pour discuter de vos projets.</p>
         </div>
+
         <div class="contact-links reveal reveal-delay-1">
           <a href="mailto:sosthenejichi@gmail.com" class="contact-link">
             <div class="contact-link-icon">@</div>
             sosthenejichi@gmail.com
           </a>
+
           <a href="tel:+2250705797370" class="contact-link">
             <div class="contact-link-icon">☎</div>
             +225 07 05 79 73 70
           </a>
+
           <a href="tel:+2250595290146" class="contact-link">
             <div class="contact-link-icon">☎</div>
             +225 05 95 29 01 46
           </a>
+
           <a href="https://www.linkedin.com/in/sosthène-jichi-b21b102b9" target="_blank" class="contact-link">
             <div class="contact-link-icon">in</div>
             Sosthène Jichi Profile
           </a>
+
           <div class="contact-link">
             <div class="contact-link-icon">📍</div>
             Abidjan, Côte d'Ivoire
@@ -784,22 +1078,27 @@
           <label class="form-label">Nom complet</label>
           <input type="text" id="field-name" class="form-input" placeholder="Votre nom" required />
         </div>
+
         <div class="form-group">
           <label class="form-label">Email</label>
           <input type="email" id="field-email" class="form-input" placeholder="votre@email.com" required />
         </div>
+
         <div class="form-group">
           <label class="form-label">Sujet</label>
           <input type="text" id="field-subject" class="form-input" placeholder="Collaboration, mission, question..." required />
         </div>
+
         <div class="form-group">
           <label class="form-label">Message</label>
           <textarea id="field-message" class="form-textarea" placeholder="Décrivez votre projet ou votre demande..." required></textarea>
         </div>
+
         <button class="form-submit" id="submitBtn" onclick="sendEmail()">
           <span class="spinner" id="spinner"></span>
           <span id="submitLabel">Envoyer le message</span>
         </button>
+
         <div class="form-feedback" id="formFeedback"></div>
       </div>
     </div>
@@ -816,31 +1115,30 @@
   <div class="toast" id="toast"></div>
 
   <script>
-    // ═══════════════════════════════════════════════════════════════════
     // CV MODAL
-    // ═══════════════════════════════════════════════════════════════════
     function openCvModal() {
       const modal = document.getElementById('cvModal');
       modal.classList.add('open');
       document.body.style.overflow = 'hidden';
     }
+
     function closeCvModal() {
       const modal = document.getElementById('cvModal');
       modal.classList.remove('open');
       document.body.style.overflow = '';
     }
+
     // Close on overlay click
     document.getElementById('cvModal').addEventListener('click', function(e) {
       if (e.target === this) closeCvModal();
     });
+
     // Close on Escape
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') closeCvModal();
     });
 
-    // ═══════════════════════════════════════════════════════════════════
     // EMAILJS
-    // ═══════════════════════════════════════════════════════════════════
     const EMAILJS_PUBLIC_KEY  = 'RYjnBjtEl45WB7Zqv';
     const EMAILJS_SERVICE_ID  = 'service_xtl0of8';
     const EMAILJS_TEMPLATE_ID = 'template_ps4z80u';
@@ -861,6 +1159,7 @@
         feedback.className = 'form-feedback err';
         return;
       }
+
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
         feedback.textContent = 'Adresse email invalide.';
         feedback.className = 'form-feedback err';
@@ -875,12 +1174,12 @@
 
       try {
         await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-          from_name:  name,
+          from_name: name,
           from_email: email,
-          name:       name,
-          email:      email,
-          subject:    subject,
-          message:    message
+          name: name,
+          email: email,
+          subject: subject,
+          message: message
         });
 
         btn.classList.remove('loading');
@@ -889,7 +1188,7 @@
         feedback.textContent = 'Merci ! Je vous répondrai dans les meilleurs délais.';
         feedback.className = 'form-feedback ok';
 
-        ['field-name','field-email','field-subject','field-message']
+        ['field-name', 'field-email', 'field-subject', 'field-message']
           .forEach(id => document.getElementById(id).value = '');
 
         setTimeout(() => {
@@ -921,36 +1220,52 @@
     const cursor = document.getElementById('cursor');
     const ring = document.getElementById('cursorRing');
     let mx = 0, my = 0, rx = 0, ry = 0;
+
     document.addEventListener('mousemove', e => {
-      mx = e.clientX; my = e.clientY;
-      cursor.style.left = mx+'px'; cursor.style.top = my+'px';
+      mx = e.clientX;
+      my = e.clientY;
+      cursor.style.left = mx + 'px';
+      cursor.style.top = my + 'px';
     });
+
     function animRing() {
-      rx += (mx-rx)*0.12; ry += (my-ry)*0.12;
-      ring.style.left = rx+'px'; ring.style.top = ry+'px';
+      rx += (mx - rx) * 0.12;
+      ry += (my - ry) * 0.12;
+      ring.style.left = rx + 'px';
+      ring.style.top = ry + 'px';
       requestAnimationFrame(animRing);
     }
+
     animRing();
+
     document.querySelectorAll('a,button,.project-card,.skill-block,.doc-card,.cv-lang-btn').forEach(el => {
       el.addEventListener('mouseenter', () => {
         cursor.style.transform = 'translate(-50%,-50%) scale(2.5)';
-        ring.style.width = '56px'; ring.style.height = '56px';
+        ring.style.width = '56px';
+        ring.style.height = '56px';
         ring.style.borderColor = 'rgba(201,165,92,0.8)';
       });
+
       el.addEventListener('mouseleave', () => {
         cursor.style.transform = 'translate(-50%,-50%) scale(1)';
-        ring.style.width = '36px'; ring.style.height = '36px';
+        ring.style.width = '36px';
+        ring.style.height = '36px';
         ring.style.borderColor = 'rgba(201,165,92,0.5)';
       });
     });
 
     // SCROLL REVEAL
     const revealEls = document.querySelectorAll('.reveal');
+
     const obs = new IntersectionObserver(entries => {
       entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          obs.unobserve(e.target);
+        }
       });
     }, { threshold: 0.1 });
+
     revealEls.forEach(el => obs.observe(el));
 
     // SKILL BARS
@@ -959,34 +1274,44 @@
         if (entry.isIntersecting) {
           entry.target.querySelectorAll('.skill-item').forEach(item => {
             const pctEl = item.querySelector('.skill-pct');
-            const fill  = item.querySelector('.skill-fill');
+            const fill = item.querySelector('.skill-fill');
+
             if (pctEl && fill) {
               const pct = parseFloat(pctEl.textContent.replace('%', ''));
               if (!isNaN(pct)) fill.style.width = pct + '%';
             }
           });
+
           skillObs.unobserve(entry.target);
         }
       });
     }, { threshold: 0.3 });
+
     document.querySelectorAll('.skill-block').forEach(b => skillObs.observe(b));
 
     // ACTIVE NAV
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-links a');
+
     window.addEventListener('scroll', () => {
       let cur = '';
-      sections.forEach(s => { if (window.scrollY >= s.offsetTop - 200) cur = s.id; });
+
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 200) cur = s.id;
+      });
+
       navLinks.forEach(a => {
-        a.style.color = a.getAttribute('href') === '#'+cur ? 'var(--gold)' : '';
+        a.style.color = a.getAttribute('href') === '#' + cur ? 'var(--gold)' : '';
       });
     });
 
     function showToast(msg) {
       const t = document.getElementById('toast');
-      t.textContent = msg; t.classList.add('show');
+      t.textContent = msg;
+      t.classList.add('show');
       setTimeout(() => t.classList.remove('show'), 4000);
     }
   </script>
+
 </body>
 </html>
